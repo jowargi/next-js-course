@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--main-bg);
+}
+
+.title {
+  cursor: pointer;
+  color: var(--heading-color);
+  font-size: var(--h1-font-size);
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--section-bg);
+}

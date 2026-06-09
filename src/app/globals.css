@@ -1,0 +1,55 @@
+:root {
+  /* Основные цвета */
+  --layout-bg: #ffffff;
+  --main-bg: #f8f9fa;
+  --section-bg: #ffffff;
+
+  /* Цвета заголовков */
+  --heading-color: #1a1a1a;
+
+  /* Цвета текста */
+  --text-color: #333333;
+
+  /* Цвета границ */
+  --border-color: #dddddd;
+
+  /* Размеры шрифтов заголовков */
+  --h1-font-size: 2.5rem; /* 40px */
+  --h2-font-size: 2rem; /* 32px */
+  --h3-font-size: 1.75rem; /* 28px */
+  --h4-font-size: 1.5rem; /* 24px */
+  --h5-font-size: 1.25rem; /* 20px */
+  --h6-font-size: 1rem; /* 16px */
+
+  /* Размер шрифта параграфов */
+  --p-font-size: 1rem; /* 16px */
+
+  /* Цвета кнопок */
+  --btn-bg: #007bff;
+  --btn-color: #ffffff;
+  --btn-border-color: #007bff;
+
+  /* Цвета кнопок (дополнительные) */
+  --disabled-btn-bg: #cccccc;
+  --disabled-btn-color: #666666;
+  --disabled-btn-border-color: #aaaaaa;
+
+  /* Размер шрифта кнопки */
+  --btn-font-size: 1rem; /* 16px */
+
+  /* Цвета спиннера */
+  --spinner-border-color: #cccccc;
+
+  /* Цвета ссылок */
+  --link-bg: #007bff;
+  --link-color: #ffffff;
+  --link-border-color: #007bff;
+
+  /* Цвета ссылок (дополнительные) */
+  --active-link-bg: #cccccc;
+  --active-link-color: #666666;
+  --active-link-border-color: #aaaaaa;
+
+  /* Размер шрифта ссылки */
+  --link-font-size: 1rem; /* 16px */
+}

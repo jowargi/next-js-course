@@ -1,0 +1,22 @@
+.link {
+  display: block;
+  width: fit-content;
+  padding: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: var(--link-font-size);
+}
+
+.link--active {
+  border-color: var(--active-link-border-color);
+  background-color: var(--active-link-bg);
+  color: var(--active-link-color);
+}
+
+.link--disabled {
+  border-color: var(--link-border-color);
+  background-color: var(--link-bg);
+  color: var(--link-color);
+}

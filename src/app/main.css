@@ -1,0 +1,17 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--layout-bg);
+}
+
+body > header {
+  margin: 1rem 1rem 0;
+}
+
+body > main {
+  margin: 1rem;
+}
+
+body > footer {
+  margin: 0 1rem 1rem;
+}
