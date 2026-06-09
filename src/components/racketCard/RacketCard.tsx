@@ -1,10 +1,8 @@
-"use client";
-
 import { Racket } from "@/constants/mock";
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import styles from "./RacketCard.module.css";
-import { useRouter } from "next/navigation";
 import Img from "../img/Img";
+import NavLink from "../navLink/NavLink";
 
 interface RacketCardProps {
   racketId: Racket["id"];
@@ -17,15 +15,16 @@ const RacketCard: FC<RacketCardProps> = function ({
   racketName,
   racketImageUrl,
 }) {
-  const router = useRouter();
-
-  const onClick = useCallback(
-    (): void => router.push(`/racket/${racketId}`),
-    [router, racketId],
-  );
-
   return (
-    <div className={styles.container} onClick={onClick}>
+    <div className={styles.container}>
+      <nav className={styles.nav}>
+        <NavLink
+          href={`/racket/${racketId}`}
+          style={{ borderRadius: "5px", fontSize: "0.75rem" }}
+        >
+          ↗
+        </NavLink>
+      </nav>
       <Img src={racketImageUrl} alt="" loading="lazy" className={styles.img} />
       <p className={styles.text}>{racketName}</p>
     </div>

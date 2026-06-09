@@ -1,16 +1,15 @@
 "use client";
 
-import { DragEvent, FC, RefObject, useCallback } from "react";
+import { DragEvent, FC, useCallback } from "react";
 
 interface ImgProps {
   src?: string | Blob;
   alt?: string;
   loading?: "eager" | "lazy";
-  ref?: RefObject<HTMLImageElement>;
   className?: string;
 }
 
-const Img: FC<ImgProps> = function ({ src, alt, loading, ref, className }) {
+const Img: FC<ImgProps> = function ({ src, alt, loading, className }) {
   const onDragStart = useCallback(
     (event: DragEvent<HTMLImageElement>): void => event.preventDefault(),
     [],
@@ -22,7 +21,6 @@ const Img: FC<ImgProps> = function ({ src, alt, loading, ref, className }) {
       src={src}
       alt={alt}
       loading={loading}
-      ref={ref}
       className={className}
       onDragStart={onDragStart}
     />

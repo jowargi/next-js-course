@@ -1,21 +1,3 @@
 .item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
   flex-shrink: 0;
-  cursor: pointer;
-}
-
-.img {
-  display: block;
-  width: auto;
-  height: 20rem;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-}
-
-.text {
-  color: var(--text-color);
-  font-size: var(--p-font-size);
 }

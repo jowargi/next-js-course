@@ -9,9 +9,10 @@ import classNames from "classnames";
 interface NavLinkProps {
   children: React.ReactNode;
   href: string;
+  style?: React.CSSProperties;
 }
 
-const NavLink: FC<NavLinkProps> = function ({ children, href }) {
+const NavLink: FC<NavLinkProps> = function ({ children, href, style }) {
   const pathname = usePathname();
 
   return (
@@ -21,6 +22,7 @@ const NavLink: FC<NavLinkProps> = function ({ children, href }) {
         styles.link,
         styles[`link--${href === pathname ? "active" : "disabled"}`],
       )}
+      style={style}
     >
       {children}
     </Link>

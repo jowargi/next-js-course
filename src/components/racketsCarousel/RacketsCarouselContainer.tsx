@@ -3,7 +3,7 @@ import { Racket, rackets } from "@/constants/mock";
 import RacketsCarousel from "./RacketsCarousel";
 
 const RacketsCarouselContainer: FC<{ limit?: number }> = function ({
-  limit = 5,
+  limit = 10,
 }) {
   const racketIds = rackets
     .map((racket: Racket): Racket["id"] => racket.id)
