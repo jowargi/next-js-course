@@ -20,12 +20,18 @@ const RacketCard: FC<RacketCardProps> = function ({
       <nav className={styles.nav}>
         <NavLink
           href={`/racket/${racketId}`}
-          style={{ borderRadius: "5px", fontSize: "0.75rem" }}
+          borderRadius="rounded"
+          fontSize="s"
         >
           ↗
         </NavLink>
       </nav>
-      <Img src={racketImageUrl} alt="" loading="lazy" className={styles.img} />
+      <Img
+        src={racketImageUrl}
+        alt={racketName}
+        loading="lazy"
+        className={styles.img}
+      />
       <p className={styles.text}>{racketName}</p>
     </div>
   );

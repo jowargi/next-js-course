@@ -27,7 +27,7 @@ const RacketView: FC<RacketViewProps> = function ({
         <p className={styles.price}>{racketPrice} €</p>
       </div>
       <div className={styles["img-wrapper"]}>
-        <Img src={racketImageUrl} alt="" className={styles.img} />
+        <Img src={racketImageUrl} alt={racketName} className={styles.img} />
       </div>
     </div>
   );

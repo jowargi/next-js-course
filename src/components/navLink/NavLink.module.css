@@ -6,7 +6,6 @@
   border-style: solid;
   white-space: nowrap;
   text-decoration: none;
-  font-size: var(--link-font-size);
 }
 
 .link--active {
@@ -19,4 +18,32 @@
   border-color: var(--link-border-color);
   background-color: var(--link-bg);
   color: var(--link-color);
+}
+
+.link--border-radius-square {
+  border-radius: 0;
+}
+
+.link--border-radius-rounded {
+  border-radius: 5px;
+}
+
+.link--font-size-xs {
+  font-size: 0.5rem;
+}
+
+.link--font-size-s {
+  font-size: 0.75rem;
+}
+
+.link--font-size-m {
+  font-size: 1rem;
+}
+
+.link--font-size-l {
+  font-size: 1.25rem;
+}
+
+.link--font-size-xl {
+  font-size: 1.5rem;
 }

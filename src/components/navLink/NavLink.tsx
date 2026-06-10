@@ -9,10 +9,16 @@ import classNames from "classnames";
 interface NavLinkProps {
   children: React.ReactNode;
   href: string;
-  style?: React.CSSProperties;
+  borderRadius?: "square" | "rounded";
+  fontSize?: "xs" | "s" | "m" | "l" | "xl";
 }
 
-const NavLink: FC<NavLinkProps> = function ({ children, href, style }) {
+const NavLink: FC<NavLinkProps> = function ({
+  children,
+  href,
+  borderRadius = "square",
+  fontSize = "m",
+}) {
   const pathname = usePathname();
 
   return (
@@ -21,8 +27,9 @@ const NavLink: FC<NavLinkProps> = function ({ children, href, style }) {
       className={classNames(
         styles.link,
         styles[`link--${href === pathname ? "active" : "disabled"}`],
+        styles[`link--border-radius-${borderRadius}`],
+        styles[`link--font-size-${fontSize}`],
       )}
-      style={style}
     >
       {children}
     </Link>
