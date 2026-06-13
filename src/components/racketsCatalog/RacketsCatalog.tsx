@@ -1,16 +1,19 @@
-import { Racket } from "@/constants/mock";
+import { Racket } from "@/types/racket";
 import { FC, JSX } from "react";
 import styles from "./RacketsCatalog.module.css";
-import RacketCardContainer from "../racketCard/RacketCardContainer";
+import RacketCard from "../racketCard/RacketCard";
 
-const RacketsCatalog: FC<{ racketIds: Racket["id"][] }> = function ({
-  racketIds,
-}) {
+const RacketsCatalog: FC<{ rackets: Racket[] }> = function ({ rackets }) {
   return (
     <div className={styles.container}>
-      {racketIds.map(
-        (racketId: Racket["id"]): JSX.Element => (
-          <RacketCardContainer key={racketId} racketId={racketId} />
+      {rackets.map(
+        (racket: Racket): JSX.Element => (
+          <RacketCard
+            key={racket.id}
+            racketId={racket.id}
+            racketName={racket.name}
+            racketImageUrl={racket.imageUrl}
+          />
         ),
       )}
     </div>

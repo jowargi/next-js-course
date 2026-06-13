@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styles from "./RacketsCarouselListItem.module.css";
-import { Racket } from "@/constants/mock";
+import { Racket } from "@/types/racket";
 import RacketCard from "../racketCard/RacketCard";
 
 interface RacketsCarouselListItemProps {
