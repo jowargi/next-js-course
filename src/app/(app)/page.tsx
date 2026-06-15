@@ -1,6 +1,8 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import styles from "./page.module.css";
-import RacketsCarouselContainer from "@/components/racketsCarousel/RacketsCarouselContainer";
+import PaginatedRacketsCarouselContainer from "@/components/racketsCarousel/PaginatedRacketsCarouselContainer";
+import TopRacketsCarouselContainer from "@/components/racketsCarousel/TopRacketsCarouselContainer";
+import RacketsCarouselSkeleton from "@/skeletons/racketsCarousel/RacketsCarouselSkeleton";
 
 const HomePage: FC<PageProps<"/">> = function () {
   return (
@@ -12,7 +14,12 @@ const HomePage: FC<PageProps<"/">> = function () {
         мощной подачи и безупречного стиля на корте. Найдите ту самую ракетку, с
         которой каждая победа будет ощущаться иначе.
       </p>
-      <RacketsCarouselContainer />
+      <Suspense fallback={<RacketsCarouselSkeleton />}>
+        <PaginatedRacketsCarouselContainer page={1} limit={10} />
+      </Suspense>
+      <Suspense fallback={<RacketsCarouselSkeleton />}>
+        <TopRacketsCarouselContainer />
+      </Suspense>
     </section>
   );
 };

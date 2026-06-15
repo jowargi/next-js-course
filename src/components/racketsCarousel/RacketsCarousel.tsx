@@ -1,26 +1,38 @@
 import { FC, JSX } from "react";
 import NavLink from "../navLink/NavLink";
 import styles from "./RacketsCarousel.module.css";
-import RacketsCarouselListItemContainer from "../racketsCarouselListItem/RacketsCarouselListItemContainer";
-import { Racket } from "@/constants/mock";
+import { Racket } from "@/types/racket";
+import RacketsCarouselListItem from "../racketsCarouselListItem/RacketsCarouselListItem";
 
-const RacketsCarousel: FC<{ racketIds: Racket["id"][] }> = function ({
-  racketIds,
+interface RacketsCarouselProps {
+  rackets: Racket[];
+  racketsCarouselTitle?: string;
+  linkHref?: string;
+  linkText?: string;
+}
+
+const RacketsCarousel: FC<RacketsCarouselProps> = function ({
+  rackets,
+  racketsCarouselTitle = "Ракетки",
+  linkHref = "/rackets",
+  linkText = "Все ↗",
 }) {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <h3 className={styles.title}>Ракетки</h3>
+        <h3 className={styles.title}>{racketsCarouselTitle}</h3>
         <nav>
-          <NavLink href="/rackets">Все ↗</NavLink>
+          <NavLink href={linkHref}>{linkText}</NavLink>
         </nav>
       </div>
       <ul className={styles.list}>
-        {racketIds.map(
-          (racketId: Racket["id"]): JSX.Element => (
-            <RacketsCarouselListItemContainer
-              key={racketId}
-              racketId={racketId}
+        {rackets.map(
+          (racket: Racket): JSX.Element => (
+            <RacketsCarouselListItem
+              key={racket.id}
+              racketId={racket.id}
+              racketName={racket.name}
+              racketImageUrl={racket.imageUrl}
             />
           ),
         )}

@@ -1,4 +1,4 @@
-import { Racket } from "@/constants/mock";
+import { Racket } from "@/types/racket";
 import { FC } from "react";
 import styles from "./RacketView.module.css";
 import Img from "../img/Img";
