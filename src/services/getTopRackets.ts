@@ -3,7 +3,11 @@ import { Racket } from "@/types/racket";
 import { Response } from "@/types/response";
 
 export const getTopRackets = async (): Response<Racket[]> => {
-  const response = await fetch(`${BASE_API_URL}/top-10`, { cache: "no-store" });
+  const response = await fetch(`${BASE_API_URL}/top-10`, {
+    next: {
+      tags: ["getTopRackets"],
+    },
+  });
 
   if (!response.ok)
     return {

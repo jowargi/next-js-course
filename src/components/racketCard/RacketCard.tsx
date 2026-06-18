@@ -3,6 +3,7 @@ import { FC } from "react";
 import styles from "./RacketCard.module.css";
 import Img from "../img/Img";
 import NavLink from "../navLink/NavLink";
+import PendingLinkContent from "../pendingLinkContent/PendingLinkContent";
 
 interface RacketCardProps {
   racketId: Racket["id"];
@@ -23,7 +24,7 @@ const RacketCard: FC<RacketCardProps> = function ({
           borderRadius="rounded"
           fontSize="s"
         >
-          ↗
+          <PendingLinkContent linkContent="↗" />
         </NavLink>
       </nav>
       <Img

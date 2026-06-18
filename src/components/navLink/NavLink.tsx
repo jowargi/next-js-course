@@ -9,6 +9,7 @@ import classNames from "classnames";
 interface NavLinkProps {
   children: React.ReactNode;
   href: string;
+  prefetch?: boolean | "auto" | null;
   borderRadius?: "square" | "rounded";
   fontSize?: "xs" | "s" | "m" | "l" | "xl";
 }
@@ -16,6 +17,7 @@ interface NavLinkProps {
 const NavLink: FC<NavLinkProps> = function ({
   children,
   href,
+  prefetch = false,
   borderRadius = "square",
   fontSize = "m",
 }) {
@@ -24,6 +26,7 @@ const NavLink: FC<NavLinkProps> = function ({
   return (
     <Link
       href={href}
+      prefetch={prefetch}
       className={classNames(
         styles.link,
         styles[`link--${href === pathname ? "active" : "disabled"}`],

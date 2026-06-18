@@ -3,7 +3,29 @@ import styles from "./page.module.css";
 import { getRacketById } from "@/services/getRacketById";
 import { notFound } from "next/navigation";
 import RacketView from "@/components/racketView/RacketView";
-import ErrorFallback from "@/components/errorFallback/ErrorFallback";
+import { Metadata } from "next";
+import { getRacketMetadataById } from "@/services/getRacketMetadataById";
+import { HttpError } from "@/errors/HttpError";
+
+export const generateMetadata = async ({
+  params,
+}: PageProps<"/racket/[racketId]">): Promise<Metadata> => {
+  const { racketId } = await params;
+
+  const { isError, data: racketMetadata } =
+    await getRacketMetadataById(+racketId);
+
+  if (isError || !racketMetadata)
+    return {
+      title: "Ракетка не найдена",
+      description: "Запрошенная модель ракетки недоступна или была удалена.",
+    };
+
+  return {
+    title: racketMetadata.name,
+    description: racketMetadata.description,
+  };
+};
 
 const RacketPage: FC<PageProps<"/racket/[racketId]">> = async function ({
   params,
@@ -19,7 +41,7 @@ const RacketPage: FC<PageProps<"/racket/[racketId]">> = async function ({
 
   if (isError && status === 404) return notFound();
 
-  if (isError) return <ErrorFallback status={status} statusText={statusText} />;
+  if (isError) throw new HttpError({ status, statusText });
 
   if (!racket) return null;
 
