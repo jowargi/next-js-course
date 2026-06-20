@@ -5,9 +5,7 @@ import { Response } from "@/types/response";
 export const getRacketById = async (
   racketId: Racket["id"],
 ): Response<Racket> => {
-  const response = await fetch(`${BASE_API_URL}/product/${racketId}`, {
-    cache: "no-store",
-  });
+  const response = await fetch(`${BASE_API_URL}/product/${racketId}`);
 
   if (!response.ok)
     return {

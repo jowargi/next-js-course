@@ -64,4 +64,12 @@
   /* Размеры шрифта статуса запроса */
   --status-font-size: 2rem;
   --status-text-font-size: 1rem;
+
+  /* Цвета обработчика ошибок */
+  --error-name-color: #1a1a1a;
+  --error-message-color: #333333;
+
+  /* Размеры шрифта обработчика ошибок */
+  --error-name-font-size: 2rem;
+  --error-message-font-size: 1rem;
 }

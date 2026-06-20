@@ -2,7 +2,14 @@ import { FC } from "react";
 import { getRackets } from "@/services/getRackets";
 import { notFound } from "next/navigation";
 import RacketsCatalog from "@/components/racketsCatalog/RacketsCatalog";
-import ErrorFallback from "@/components/errorFallback/ErrorFallback";
+import { Metadata } from "next";
+import { HttpError } from "@/errors/HttpError";
+
+export const metadata: Metadata = {
+  title: "Каталог теннисных ракеток",
+  description:
+    "Широкий выбор теннисных ракеток ведущих брендов. Подберите идеальную ракетку для своего стиля игры.",
+};
 
 const RacketsPage: FC<PageProps<"/rackets">> = async function () {
   const {
@@ -14,7 +21,7 @@ const RacketsPage: FC<PageProps<"/rackets">> = async function () {
 
   if (isError && status === 404) return notFound();
 
-  if (isError) return <ErrorFallback status={status} statusText={statusText} />;
+  if (isError) throw new HttpError({ status, statusText });
 
   if (!rackets?.length) return null;
 
