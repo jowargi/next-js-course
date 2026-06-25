@@ -6,6 +6,7 @@ import RacketView from "@/components/racketView/RacketView";
 import { Metadata } from "next";
 import { getRacketMetadataById } from "@/services/getRacketMetadataById";
 import { HttpError } from "@/errors/HttpError";
+import FavoriteRacketToggle from "@/components/favoriteRacketToggle/FavoriteRacketToggle";
 
 export const generateMetadata = async ({
   params,
@@ -39,7 +40,7 @@ const RacketPage: FC<PageProps<"/racket/[racketId]">> = async function ({
     data: racket,
   } = await getRacketById(+racketId);
 
-  if (isError && status === 404) return notFound();
+  if (isError && status === 404) notFound();
 
   if (isError) throw new HttpError({ status, statusText });
 
@@ -55,6 +56,9 @@ const RacketPage: FC<PageProps<"/racket/[racketId]">> = async function ({
         racketDescription={racket.description}
         racketBrandName={racket.brand.name}
       />
+      {racket.userData && (
+        <FavoriteRacketToggle isFavorite={racket.userData.isFavorite} />
+      )}
     </section>
   );
 };

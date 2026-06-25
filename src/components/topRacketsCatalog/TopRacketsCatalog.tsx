@@ -22,7 +22,7 @@ const TopRacketsCatalog: FC<TopRacketsCatalogProps> = function ({
     data: rackets,
   } = use(getTopRacketsPromise);
 
-  if (isError && status === 404) return notFound();
+  if (isError && status === 404) notFound();
 
   if (isError) throw new HttpError({ status, statusText });
 
