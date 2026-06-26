@@ -19,7 +19,7 @@ const RacketsPage: FC<PageProps<"/rackets">> = async function () {
     data: rackets,
   } = await getRackets({ page: 1, limit: 20 });
 
-  if (isError && status === 404) return notFound();
+  if (isError && status === 404) notFound();
 
   if (isError) throw new HttpError({ status, statusText });
 
