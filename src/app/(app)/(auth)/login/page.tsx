@@ -6,10 +6,10 @@ import { loginAction, LoginActionState } from "./login-action";
 import styles from "./page.module.css";
 
 const LoginPage: FC<PageProps<"/login">> = function () {
-  const [state, formAction, isPending] = useActionState<LoginActionState>(
-    loginAction,
-    {},
-  );
+  const [state, formAction, isPending] = useActionState<
+    LoginActionState,
+    FormData
+  >(loginAction, {});
 
   const { error, redirectTo } = state;
 
