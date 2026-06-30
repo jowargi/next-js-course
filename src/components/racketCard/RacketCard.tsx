@@ -4,23 +4,26 @@ import styles from "./RacketCard.module.css";
 import Img from "../img/Img";
 import NavLink from "../navLink/NavLink";
 import PendingLinkContent from "../pendingLinkContent/PendingLinkContent";
+import FavoriteToggle from "../favoriteToggle/FavoriteToggle";
 
-interface RacketCardProps {
-  racketId: Racket["id"];
-  racketName: Racket["name"];
-  racketImageUrl: Racket["imageUrl"];
-}
-
-const RacketCard: FC<RacketCardProps> = function ({
-  racketId,
-  racketName,
-  racketImageUrl,
-}) {
+const RacketCard: FC<{ racket: Racket }> = function ({ racket }) {
   return (
     <div className={styles.container}>
+      {racket.userData && (
+        <div className={styles.toggle}>
+          <FavoriteToggle
+            racketId={racket.id}
+            isFavorite={racket.userData.isFavorite}
+            addLabel="☆"
+            removeLabel="★"
+            borderRadius="rounded"
+            fontSize="s"
+          />
+        </div>
+      )}
       <nav className={styles.nav}>
         <NavLink
-          href={`/racket/${racketId}`}
+          href={`/racket/${racket.id}`}
           borderRadius="rounded"
           fontSize="s"
         >
@@ -28,12 +31,12 @@ const RacketCard: FC<RacketCardProps> = function ({
         </NavLink>
       </nav>
       <Img
-        src={racketImageUrl}
-        alt={racketName}
+        src={racket.imageUrl}
+        alt={racket.name}
         loading="lazy"
         className={styles.img}
       />
-      <p className={styles.text}>{racketName}</p>
+      <p className={styles.text}>{racket.name}</p>
     </div>
   );
 };

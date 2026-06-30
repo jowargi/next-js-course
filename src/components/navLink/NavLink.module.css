@@ -7,7 +7,6 @@
   border-style: solid;
   white-space: nowrap;
   text-decoration: none;
-  font-size: var(--link-font-size);
 }
 
 .link--active {

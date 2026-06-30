@@ -6,10 +6,10 @@ import { registerAction, RegisterActionState } from "./register-action";
 import styles from "./page.module.css";
 
 const RegisterPage: FC = function () {
-  const [state, formAction, isPending] = useActionState<RegisterActionState>(
-    registerAction,
-    {},
-  );
+  const [state, formAction, isPending] = useActionState<
+    RegisterActionState,
+    FormData
+  >(registerAction, {});
 
   const { error, redirectTo } = state;
 
