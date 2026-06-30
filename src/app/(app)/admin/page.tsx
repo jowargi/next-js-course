@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuthorizedUserContext } from "@/providers/AuthorizedUserContextProvider";
+import { useAuthorizedUserContext } from "@/hooks/useAuthorizedUserContext";
 import { FC } from "react";
 import styles from "./page.module.css";
 

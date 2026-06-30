@@ -32,12 +32,7 @@ const TopRacketsCatalog: FC<TopRacketsCatalogProps> = function ({
     <div className={styles.container}>
       {rackets.map(
         (racket: Racket): JSX.Element => (
-          <RacketCard
-            key={racket.id}
-            racketId={racket.id}
-            racketName={racket.name}
-            racketImageUrl={racket.imageUrl}
-          />
+          <RacketCard key={racket.id} racket={racket} />
         ),
       )}
     </div>

@@ -9,6 +9,8 @@ interface ButtonProps {
   type?: "submit" | "reset" | "button";
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  borderRadius?: "square" | "rounded";
+  fontSize?: "xs" | "s" | "m" | "l" | "xl";
 }
 
 const Button: FC<ButtonProps> = function ({
@@ -16,6 +18,8 @@ const Button: FC<ButtonProps> = function ({
   type = "button",
   disabled,
   onClick,
+  borderRadius = "square",
+  fontSize = "m",
 }) {
   return (
     <button
@@ -25,6 +29,8 @@ const Button: FC<ButtonProps> = function ({
       className={classNames(
         styles.button,
         styles[`button--${disabled ? "disabled" : "active"}`],
+        styles[`button--border-radius-${borderRadius}`],
+        styles[`button--font-size-${fontSize}`],
       )}
     >
       {children}

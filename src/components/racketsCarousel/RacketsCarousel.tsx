@@ -28,12 +28,7 @@ const RacketsCarousel: FC<RacketsCarouselProps> = function ({
       <ul className={styles.list}>
         {rackets.map(
           (racket: Racket): JSX.Element => (
-            <RacketsCarouselListItem
-              key={racket.id}
-              racketId={racket.id}
-              racketName={racket.name}
-              racketImageUrl={racket.imageUrl}
-            />
+            <RacketsCarouselListItem key={racket.id} racket={racket} />
           ),
         )}
       </ul>
